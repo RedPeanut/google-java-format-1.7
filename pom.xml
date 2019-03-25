@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="
+		http://maven.apache.org/POM/4.0.0 
+		http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.google.googlejavaformat</groupId>
+	<artifactId>google-java-format</artifactId>
+	<version>1.7-SNAPSHOT</version>
+	
+	<name>Google Java Format</name>
+
+	<description>
+	A Java source code formatter that follows Google Java Style.
+	</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<guava.version>27.0.1-jre</guava.version>
+		<javac.version>9+181-r4173-1</javac.version>
+		<truth.version>0.40</truth.version>
+		<jsr305.version>3.0.2</jsr305.version>
+	</properties>
+	
+	<dependencies>
+		<!-- Required runtime dependencies -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.errorprone</groupId>
+			<artifactId>javac-shaded</artifactId>
+			<version>${javac.version}</version>
+		</dependency>
+
+		<!-- Compile-time dependencies -->
+		<dependency>
+		<groupId>com.google.code.findbugs</groupId>
+		<artifactId>jsr305</artifactId>
+		<version>${jsr305.version}</version>
+		</dependency>
+		<dependency>
+		<groupId>com.google.errorprone</groupId>
+		<artifactId>error_prone_annotations</artifactId>
+		<version>2.0.8</version>
+		</dependency>
+
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava-testlib</artifactId>
+			<version>${guava.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.truth</groupId>
+			<artifactId>truth</artifactId>
+			<version>${truth.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.testing.compile</groupId>
+			<artifactId>compile-testing</artifactId>
+			<version>0.15</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>
