@@ -1,0 +1,1 @@
+# google-java-format-1.7
