@@ -28,7 +28,6 @@ public class MainWrapper {
 
 	private void walk(ExecutorService executorService, File dir) {
 		File[] files = dir.listFiles();
-		//List<String> newArgs = new ArrayList<>(files.length+1);
 		LinkedList<String> newArgs = new LinkedList<>();
 
 		for (File f : files) {
@@ -49,9 +48,7 @@ public class MainWrapper {
 			newArgs.push("-aosp"); // Use AOSP style(4-space indentation).
 			newArgs.push("-replace"); // Send formatted output back to files, not stdout.
 
-			/*Thread t = new Thread(new Main(newArgs.toArray(new String[] {})));
-			t.start();*/
-			Thread t = new Thread(new Main(newArgs.toArray(new String[] {})));
+			Thread t = new Thread(new Main(newArgs.toArray(new String[0])));
 			executorService.submit(t);
 		}
 	}
